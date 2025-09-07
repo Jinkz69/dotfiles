@@ -1,0 +1,66 @@
+# Global gitignore file for all projects
+
+# Environment and configuration files
+.env
+.env.local
+.env.*.local
+config/local.*
+secrets.json
+*.key
+*.pem
+
+# Operating System files
+.DS_Store
+Thumbs.db
+desktop.ini
+*.tmp
+*~
+
+# IDE and Editor files
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Build outputs and dependencies
+dist/
+build/
+out/
+target/
+*.log
+*.cache
+node_modules/
+.npm
+.yarn
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Version control
+.git/
+.svn/
+.hg/
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Backup files
+*.backup
+*.bak
+*.orig
+
+# Warp specific (for sharing dotfiles)
+warp/settings/*.db
+warp/settings/backup-info.json

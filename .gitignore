@@ -1,0 +1,23 @@
+# Dotfiles repository .gitignore
+
+# Sensitive Warp data (only backup config, not full database)
+warp/settings/*.db
+warp/settings/backup-info.json
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+.DS_Store
+Thumbs.db
+
+# Test files
+test-*.ps1
+
+# IDE files
+.vscode/settings.json
+.idea/
+
+# Backup files
+*.backup
+*.bak
