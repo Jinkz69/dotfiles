@@ -1,0 +1,152 @@
+{
+  "mcp_server": {
+    "name": "proxmox",
+    "type": "infrastructure",
+    "description": "Proxmox Virtual Environment cluster management",
+    "version": "1.0",
+    "last_updated": "2025-09-07",
+    "connection": {
+      "cluster_name": "Home-Cluster",
+      "network_range": "192.168.1.x",
+      "api_version": "v2",
+      "nodes": [
+        {
+          "name": "prox00",
+          "ip": "192.168.1.25",
+          "node_id": 1,
+          "local": true,
+          "status": "online"
+        },
+        {
+          "name": "prox01", 
+          "ip": "192.168.1.26",
+          "node_id": 2,
+          "local": false,
+          "status": "online"
+        },
+        {
+          "name": "prox02",
+          "ip": "192.168.1.29", 
+          "node_id": 5,
+          "local": false,
+          "status": "online"
+        },
+        {
+          "name": "prox03",
+          "ip": "192.168.1.27",
+          "node_id": 3, 
+          "local": false,
+          "status": "online"
+        },
+        {
+          "name": "prox04",
+          "ip": "192.168.1.28",
+          "node_id": 4,
+          "local": false,
+          "status": "online"
+        }
+      ],
+      "cluster_info": {
+        "quorate": true,
+        "version": 24,
+        "total_nodes": 5,
+        "online_nodes": 5
+      }
+    },
+    "available_tools": [
+      {
+        "name": "proxmox-cluster-resources",
+        "description": "Get detailed cluster resources information",
+        "parameters": []
+      },
+      {
+        "name": "proxmox-cluster-status", 
+        "description": "Get cluster status and resources",
+        "parameters": []
+      },
+      {
+        "name": "proxmox-container-status",
+        "description": "Get the status of a specific container",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "string",
+            "required": true,
+            "description": "Node name (e.g., prox01)"
+          },
+          {
+            "name": "vmid",
+            "type": "string", 
+            "required": true,
+            "description": "Container ID"
+          }
+        ]
+      },
+      {
+        "name": "proxmox-list-containers",
+        "description": "List all containers (LXC) on a Proxmox node",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "string",
+            "required": true,
+            "description": "Node name (e.g., prox01)"
+          }
+        ]
+      },
+      {
+        "name": "proxmox-list-vms",
+        "description": "List all virtual machines on a Proxmox node", 
+        "parameters": [
+          {
+            "name": "node",
+            "type": "string",
+            "required": true,
+            "description": "Node name (e.g., prox01)"
+          }
+        ]
+      },
+      {
+        "name": "proxmox-node-status",
+        "description": "Get the status of a Proxmox node",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "string",
+            "required": true, 
+            "description": "Node name (e.g., prox01)"
+          }
+        ]
+      },
+      {
+        "name": "proxmox-vm-status",
+        "description": "Get the status of a specific VM",
+        "parameters": [
+          {
+            "name": "node",
+            "type": "string",
+            "required": true,
+            "description": "Node name (e.g., prox01)"
+          },
+          {
+            "name": "vmid",
+            "type": "string",
+            "required": true,
+            "description": "VM ID"
+          }
+        ]
+      }
+    ],
+    "security": {
+      "credentials_stored_in": "warp_secure_storage",
+      "api_authentication": "api_token",
+      "network_access_required": true,
+      "notes": "Credentials are managed by Warp and not backed up to version control"
+    },
+    "backup_strategy": {
+      "configuration": "documented_in_git",
+      "credentials": "managed_by_warp",
+      "restore_method": "manual_reconfiguration"
+    }
+  }
+}
